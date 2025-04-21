@@ -201,7 +201,9 @@ button{
 /*  */
 
 #calendar {
- 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 2rem;
   border-radius: 16px;
   text-align: center;
@@ -213,7 +215,7 @@ button{
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
+  gap: 5px;
 }
 
 .day-name {
@@ -241,6 +243,12 @@ button{
   background: transparent;
   border: none;
   cursor: default;
+}
+
+.timer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .time{
   padding: 5px 0;

@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 function App() {
   const groom = 'Еркем';
   const eventDate = new Date('2025-06-28T18:00:00');
-  const phone = '77001234567';
+  const phone = '77003040299';
+  const [value, setValue]=useState("")
 
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, mins: 0, secs: 0 });
 
@@ -25,7 +26,7 @@ function App() {
   }, []);
 
   const handleWhatsapp = () => {
-    const message = `Сәлеметсіз бе! Мен ${groom} мен ${bride}-ның үйлену тойына келемін 😊`;
+    const message = `Сәлеметсіз бе! Мен ${value} ұзату тойына келемін 😊`;
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
@@ -52,11 +53,11 @@ function App() {
     дос-жарандар мен әріптестер!
   </h1>
 
-  <p class="invite-text">Сіздерді аяулы</p>
+  <p className="invite-text">Сіздерді аяулы</p>
 
-  <div class="name">Еркем</div>
+  <div className="name">Еркем</div>
 
-  <p class="invite-text">
+  <p className="invite-text">
     қызымыздың ұзату тойына<br/>
     арналған салтанатты<br/>
     ақ дастарханымыздың<br/>
@@ -76,54 +77,54 @@ function App() {
       <h1>Той салтанаты</h1>
      <section id="calendar">
   <h2 className='calendar-title'>28 Маусым 2025</h2>
-  <div class="calendar-grid">
-    <div class="day-name">Дс</div>
-    <div class="day-name">Сс</div>
-    <div class="day-name">Ср</div>
-    <div class="day-name">Бс</div>
-    <div class="day-name">Жм</div>
-    <div class="day-name">Сн</div>
-    <div class="day-name">Жс</div>
+  <div className="calendar-grid">
+    <div className="day-name">Дс</div>
+    <div className="day-name">Сс</div>
+    <div className="day-name">Ср</div>
+    <div className="day-name">Бс</div>
+    <div className="day-name">Жм</div>
+    <div className="day-name">Сн</div>
+    <div className="day-name">Жс</div>
 
     
-    <div class="day empty"></div>
-    <div class="day empty"></div>
-    <div class="day empty"></div>
-    <div class="day">1</div>
-    <div class="day">2</div>
-    <div class="day">3</div>
-    <div class="day">4</div>
+    <div className="day empty"></div>
+    <div className="day empty"></div>
+    <div className="day empty"></div>
+    <div className="day">1</div>
+    <div className="day">2</div>
+    <div className="day">3</div>
+    <div className="day">4</div>
 
-    <div class="day">5</div>
-    <div class="day">6</div>
-    <div class="day">7</div>
-    <div class="day">8</div>
-    <div class="day">9</div>
-    <div class="day">10</div>
-    <div class="day">11</div>
+    <div className="day">5</div>
+    <div className="day">6</div>
+    <div className="day">7</div>
+    <div className="day">8</div>
+    <div className="day">9</div>
+    <div className="day">10</div>
+    <div className="day">11</div>
 
-    <div class="day">12</div>
-    <div class="day">13</div>
-    <div class="day">14</div>
-    <div class="day">15</div>
-    <div class="day">16</div>
-    <div class="day">17</div>
-    <div class="day">18</div>
+    <div className="day">12</div>
+    <div className="day">13</div>
+    <div className="day">14</div>
+    <div className="day">15</div>
+    <div className="day">16</div>
+    <div className="day">17</div>
+    <div className="day">18</div>
 
-    <div class="day">19</div>
-    <div class="day">20</div>
-    <div class="day">21</div>
-    <div class="day">22</div>
-    <div class="day">23</div>
-    <div class="day">24</div>
-    <div class="day">25</div>
+    <div className="day">19</div>
+    <div className="day">20</div>
+    <div className="day">21</div>
+    <div className="day">22</div>
+    <div className="day">23</div>
+    <div className="day">24</div>
+    <div className="day">25</div>
 
-    <div class="day">26</div>
-    <div class="day">27</div>
-    <div class="day">28</div>
-    <div class="day">29</div>
-    <div class="day">30</div>
-    <div class="day">31</div>
+    <div className="day">26</div>
+    <div className="day">27</div>
+    <div className="day">28</div>
+    <div className="day">29</div>
+    <div className="day">30</div>
+    <div className="day">31</div>
   </div>
       <h1 className='time'>Басталу уақыты</h1>
       <h1 className='time'>18:00</h1>
@@ -156,7 +157,7 @@ function App() {
         <h1 className='final-text'>Тойға келуіңізді сұраймыз!</h1>
         {/* RSVP Button Section */}
 
-        <input type="text" placeholder='Аты-жөніңіз'/>
+        <input type="text" placeholder='Аты-жөніңіз' value={value} onChange={(e)=>setValue(e.currentTarget.value)}/>
 
         <section className="rsvp">
           <button onClick={handleWhatsapp}>Қатысамын</button>
