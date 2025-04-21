@@ -6,10 +6,7 @@ import music from './sensulu.mp3';
 import orn2 from './images/orn2.png';
 
 function App() {
-  window.addEventListener("load", () => {
-  document.body.style.opacity = "1";
-});
-
+  
   const groom = 'Еркем';
   const eventDate = new Date('2025-06-28T18:00:00');
   const phone = '77003040299';
