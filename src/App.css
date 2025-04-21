@@ -12,29 +12,19 @@
   --font-text : "Cormorant Infant", serif;
 }
 
-/* @font-face {
-  font-family: 'MyCustomFont2';
-  src: url('../public/font/PlayfairDisplay-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}  */
-
 *{
     margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    padding: 0;
+    box-sizing: border-box;
 }
 
- body {
-
+body {
   background: #fffaf8;
   font-family: var(--font-text);
   font-weight: 400;
   font-style: normal;
   color: #333;
 }
-
-
 
 .page{
     display: flex;
@@ -52,23 +42,23 @@
     padding-top: 100px;
     border: none;
 }
- 
+
 .page .title{
   font-family: "Old Standard TT", serif;
-    margin: 0 0 0 -20px;
-       color: #ffa8ca;
-
+  margin: 0 0 0 -20px;
+  color: #ffa8ca;
 }
+
 .hero h1 {
   font-family: var(--font-title);
   font-size: 100px;
   margin-top: 0px;
-margin-left: -50px;
+  margin-left: -50px;
   font-weight: normal;
   font-style: normal;
-  
   color: #fda9a9;
 }
+
 .line{
     display: block;
     position: absolute;
@@ -78,6 +68,7 @@ margin-left: -50px;
     height: 150px;
     background-image: linear-gradient(rgba(0, 0, 255, 0), rgb(255, 255, 255));
 }
+
 .page-down{
     width: 100%;
     position: absolute;
@@ -89,10 +80,10 @@ margin-left: -50px;
 }
 
 /* ABOUT */
-
 .about, .timer, .location, .rsvp {
   padding: 40px 20px;
 }
+
 .location{
   font-size: 1.5rem;
   width: 100%;
@@ -109,6 +100,7 @@ margin-left: -50px;
   margin-top: 20px;
   display: flex;
   justify-content: center;
+  width: 100%;
   gap: 20px;
   font-size: 24px;
 }
@@ -157,7 +149,7 @@ margin-left: -50px;
 }
 
 .page .name {
-    font-size: 4rem;
+  font-size: 4rem;
   font-family: var(--font-title);
   color: #a152b2;
   font-weight: 100;
@@ -165,12 +157,12 @@ margin-left: -50px;
   margin-bottom: 100px;
 }
 
-
 #calendar h1{
   margin-top: 20px;
 }
+
 .calendar-title{
-     font-size: 50px;
+  font-size: 50px;
   font-family: var(--font-title);
   color: #a152b2;
   font-weight: 100;
@@ -193,13 +185,11 @@ input{
 button{
     border: none;
   padding: 15px 10px;
-    background: #fbe9e7;
+  background: #fbe9e7;
   border-radius: 15px;
-
 }
 
-/*  */
-
+/* Calendar */
 #calendar {
   display: flex;
   flex-direction: column;
@@ -210,7 +200,6 @@ button{
   font-size: 20px;
   font-family: var(--font-text);
 }
-
 
 .calendar-grid {
   display: grid;
@@ -226,7 +215,6 @@ button{
 }
 
 .day {
-
   padding: 15px 0;
   border-radius: 8px;
   color: #333;
@@ -250,114 +238,83 @@ button{
   flex-direction: column;
   align-items: center;
 }
+
 .time{
   padding: 5px 0;
 }
 
+/* MEDIA QUERIES FOR RESPONSIVENESS */
 
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 100px;
+    margin-left: 0;
+  }
 
-/*
-@font-face {
-  font-family: 'MyCustomFont';
-  src: url('../public/font/KZPF_Champion_Script_Pro.woff') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+  .title {
+    font-size: 30px;
+    margin: 20px 0;
+  }
 
-.app {
-  text-align: center;
-}
+  .page.bg {
+    height: 85vh;
+    padding-top: 100px;
+  }
 
-.page1 {
-  width: 100%;
-  height: 100vh;
-  padding: 100px 20px;
+  #about h1 {
+    font-size: 20px;
+  }
 
-  box-sizing: border-box;
-    background: url('./images/Berıkqali-Alia.jpeg') center/cover no-repeat;
-  color: white;
-  padding: 80px 20px;
-  position: relative;
-}
-
-.bg-opacity{
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-
-    background-image: linear-gradient(rgba(0, 0, 255, 0), rgb(255, 255, 255));
-}
-
-.ornament{
   
-}
-.page {
-  width: 100%;
-  height: 100vh;
-  padding: 40px 20px;
-  box-sizing: border-box;
-  color: rgb(0, 0, 0);
-  padding: 80px 20px;
-}
+  #about .invite-text {
+    font-size: 18px;
+  }
 
+  .countdown {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-size: 18px;
+  
+  }
 
+  .timer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px 0;
+  }
 
-.hero h1 {
-  font-family: 'MyCustomFont';
-  src: url('../public/font/KZPF_Champion_Script_Pro.woff') format('truetype');
-  font-size: 70px;
-  font-weight: normal;
-  font-style: normal;
-  margin: 0;
-  color: #1da851;
-}
+  .location {
+    font-size: 1.2rem;
+  }
 
-.hero p {
-  font-size: 20px;
-  color: #1da851;
-}
+  input {
+    width: 100%;
+  }
 
-.about, .timer, .location, .rsvp {
-  padding: 40px 20px;
-}
+  button {
+    width: 100%;
+  }
 
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  font-size: 24px;
+  .calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
 }
 
-.countdown div {
-  background: #fbe9e7;
-  padding: 10px 20px;
-  border-radius: 10px;
-}
+/* Desktop Styles - Show message for mobile version */
+@media (min-width: 769px) {
+  .mobile-message {
+    display: block;
+    font-size: 1.5rem;
+    color: #d46754;
+    margin-top: 20px;
+    text-align: center;
+  }
 
-button {
-  background-color: #25D366;
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  font-size: 18px;
-  border-radius: 8px;
-  cursor: pointer;
+  /* Hide content for mobile */
+  .hero h1, .calendar-title, .countdown, .location, .final-text {
+    display: none;
+  }
 }
-
-button:hover {
-  background-color: #1da851;
-}
-
-iframe {
-  border: 0;
-  border-radius: 12px;
-}
-
-.divider-img {
-  width: 100%;
-  margin-top: 20px;
-  border-radius: 10px;
-} */
