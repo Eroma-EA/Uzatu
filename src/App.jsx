@@ -137,7 +137,10 @@ function App() {
             {['Дс','Сс','Ср','Бс','Жм','Сн','Жс'].map((day, i) => (
               <div key={i} className="day-name">{day}</div>
             ))}
-            {Array(3).fill().map((_, i) => <div key={`empty-${i}`} className="day empty"></div>)}
+          {Array(new Date(2025, 5, 1).getDay() === 0 ? 6 : new Date(2025, 5, 1).getDay() - 1)
+  .fill()
+  .map((_, i) => <div key={`empty-${i}`} className="day empty"></div>)}
+
             {Array.from({ length: 31 }, (_, i) => (
               <div key={i} className={`day ${i + 1 === 28 ? 'day28' : ''}`}>{i + 1}</div>
             ))}
