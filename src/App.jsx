@@ -72,7 +72,11 @@ function App() {
                 </span>
               ))}
             </div>
-            <div className="play-icon">{isPlaying ? "⏸" : "▶"}</div>
+     <div className="play-icon">
+  {isPlaying ? "❚❚" : "▶"}
+  
+</div>
+
           </div>
           <audio ref={audioRef} src={music} />
         </div>
