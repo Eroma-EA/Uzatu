@@ -45,8 +45,8 @@ body {
   position: absolute; /* Обязательно абсолютное позиционирование */
   top: 500px;  /* Устанавливаем позицию контейнера */
   left: 20px;  /* Устанавливаем позицию контейнера */
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,8 +54,8 @@ body {
 
 .circle-button {
 
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   
   /* border: 15px solid #4caf50; */
   border-radius: 50%;
@@ -64,6 +64,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 20px solid rgb(255, 255, 255);
 }
 
 .spin {
@@ -112,8 +113,9 @@ body {
   top: 50%;
   transform-origin: 0 60px; /* Центрируем вокруг круга */
   font-size: 14px;
-  color: #ffffff;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.404),0 0 5px rgba(0, 0, 0, 0.404),0 0 5px rgb(0, 0, 0);
+  color: #ff7f7f;
+  font-weight: 600;
+    text-shadow: 0 0 5px rgb(0, 0, 0);
   letter-spacing: 2px;
   white-space: nowrap;
   transform: rotate(0deg) translateX(70px); /* Радиус текста изменен на 70px */
@@ -211,6 +213,7 @@ body {
   font-family: "Old Standard TT", serif;
   margin: 0 0 0 -20px;
   color: #fda9a9;
+  
 }
 
 .hero h1 {
