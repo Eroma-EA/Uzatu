@@ -1,25 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300..700;1,300..700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300..700;1,300..700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
 
 @font-face {
   font-family: 'MyCustomFont';
   src: url('../public/font/KZPFChampionScriptPro-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-} 
-
-:root{
-  --font-title:'MyCustomFont';
-  --font-text : "Cormorant Infant", serif;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
+
+
+:root {
+  --font-title: 'MyCustomFont', cursive;
+  --font-text: 'Cormorant Infant', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 body {
+  overflow-x: hidden;
   background: #fffaf8;
   font-family: var(--font-text);
   font-weight: 400;
@@ -27,150 +34,247 @@ body {
   color: #333;
 }
 
-.page{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    padding: 20px 20px;
-    position: relative;   
+/*  */
+.container {
+  position: absolute; /* Обязательно абсолютное позиционирование */
+  top: 500px;  /* Устанавливаем позицию контейнера */
+  left: 20px;  /* Устанавливаем позицию контейнера */
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-button {
+  width: 100px;
+  height: 100px;
+  /* border: 15px solid #4caf50; */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spin {
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Текст по кругу */
+.circular-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -100px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  transform-origin: center;
+}
+
+.circular-text span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: 0 100px; /* Центрируем вокруг круга */
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  transform: rotate(0deg) translateX(90px); /* Радиус текста */
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  color: white;
+  z-index: 2;
+}
+
+
+
+
+/*  */
+
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 20px 20px;
+  position: relative;
 }
 
 .orn {
-
   display: block;
   position: absolute;
-    width: 250px;
+  width: 250px;
   height: 250px;
   background: url('./images/orn.png') center/cover no-repeat;
-
   animation: spin 50s linear infinite;
 }
 
+.orn1 { top: 100px; left: -150px; }
+.orn2 { top: 100px; right: -150px; }
+.orn3 { top: 100px; left: -150px; }
+.orn4 { top: 100px; right: -150px; }
 
-.orn-heart{
- display: flex;
- justify-content: center;
- width: 100%;
- margin-top: 10px;
- margin-bottom: 10px;
- height: 90px;
+.orn-heart {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 10px 0;
+  height: 90px;
 }
 
-.orn-heart img{
+.orn-heart img {
   height: 100%;
   width: auto;
+  object-fit: contain;
 }
 
-.orn1{
-  top: 100px;
-  left: -150px;
-  width: 250px;
-  height: 250px;
+.day28 {
+  background: url('./images/heart-Photoroom.png') center center / 125% 80% no-repeat;
 }
 
-.orn2{
-  top: 100px;
-  right: -150px;
-  width: 250px;
-  height: 250px;
-}
-
-/* Ключевые кадры анимации */
 @keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(40px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-
-.page.bg{
-    background: url('./images/Berıkqali-Alia.jpeg') center/cover  no-repeat;
-    height: 85vh;
-    padding-top: 100px;
-    border: none;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.page .title{
+.page.bg {
+  background: url('./images/Berıkqali-Alia.jpeg') center/cover no-repeat;
+  height: 85vh;
+  padding-top: 100px;
+  border: none;
+}
+
+.page .title {
   font-family: "Old Standard TT", serif;
   margin: 0 0 0 -20px;
-  color: #ffa8ca;
+  color: #fda9a9;
 }
 
 .hero h1 {
   font-family: var(--font-title);
-  font-size: 100px;
-  margin-top: 0px;
+  font-size: clamp(60px, 12vw, 100px);
+  margin-top: 0;
   margin-left: -50px;
   font-weight: normal;
-  font-style: normal;
   color: #fda9a9;
+  animation: fadeInUp 1.2s ease forwards;
+  opacity: 0;
 }
 
-.line{
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    background-image: linear-gradient(rgba(0, 0, 255, 0), rgb(255, 255, 255));
+.line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background-image: linear-gradient(rgba(0, 0, 255, 0), #fff);
 }
 
-.page-down{
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 43px;
-    display: block;
-    background: url("./images/4.png");
+.page-down {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 43px;
+  background: url("./images/4.png");
 }
 
-/* ABOUT */
 .about, .timer, .location, .rsvp {
   padding: 40px 20px;
 }
 
-.location{
+.location {
   font-size: 1.5rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
 }
 
-.location p{
-   text-align: center;
-} 
+.location p {
+  text-align: center;
+}
 
 .countdown {
   margin-top: 20px;
   display: flex;
   justify-content: center;
-  width: 100%;
+  flex-wrap: wrap;
   gap: 20px;
   font-size: 24px;
+  text-align: center;
+  animation: fadeInUp 1.5s ease forwards;
+  opacity: 0;
 }
 
 .countdown div {
   background: #fbe9e7;
-  padding: 10px 20px;
+  padding: 10px 15px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+  height: 75px;
+  animation: fadeIn 1s ease-in-out;
 }
 
+.countdown div span {
+  font-size: 16px;
+}
 
-.gis{
+.gis {
   margin-top: 20px;
   text-decoration: none;
   color: #333;
   background: #fbe9e7;
   padding: 10px 20px;
   border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.gis:hover {
+  background-color: #fbd4cf;
+  transform: scale(1.05);
 }
 
 #about {
@@ -186,62 +290,65 @@ body {
   font-weight: bold;
   margin-bottom: 30px;
   line-height: 1.5;
+  animation: fadeInUp 1.2s ease forwards;
+  opacity: 0;
 }
 
 #about .invite-text {
   font-size: 25px;
   margin: 10px 0;
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
 }
 
-#about .name {
-  font-size: 70px;
-  font-family: var(--font-title);
-  color: #a152b2;
-  margin: 20px 0;
-}
-
+#about .name,
 .page .name {
-  font-size: 4rem;
+  font-size: clamp(40px, 8vw, 70px);
   font-family: var(--font-title);
   color: #a152b2;
   font-weight: 100;
-  margin: 20px 0;
-  margin-bottom: 100px;
+  margin: 20px 0 50px;
+  animation: fadeInUp 1.5s ease forwards;
+  opacity: 0;
 }
 
-#calendar h1{
+#calendar h1 {
   margin-top: 20px;
 }
 
-.calendar-title{
-  font-size: 50px;
+.calendar-title {
+  font-size: clamp(30px, 6vw, 50px);
   font-family: var(--font-title);
   color: #a152b2;
   font-weight: 100;
-  margin: 20px 0;
-  margin-bottom: 50px;
+  margin: 20px 0 50px;
 }
 
-.final-text{
+.final-text {
   font-size: 1.5rem;
   margin-bottom: 20px;
+  animation: fadeInUp 1.3s ease forwards;
+  opacity: 0;
 }
 
-input{
+input, button {
   border: none;
   padding: 15px 10px;
   border-radius: 15px;
-  box-shadow: 0 0 0.5px 0px ;
+  box-shadow: 0 0 0.5px 0px;
+  font-size: 1rem;
 }
 
-button{
-    border: none;
-  padding: 15px 10px;
+button {
   background: #fbe9e7;
-  border-radius: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-/* Calendar */
+button:hover {
+  background: #ffd5cb;
+}
+
 #calendar {
   display: flex;
   flex-direction: column;
@@ -270,13 +377,13 @@ button{
   padding: 15px 0;
   border-radius: 8px;
   color: #333;
+  transition: all 0.2s ease;
 }
 
 .day:hover {
   background-color: #f0e0f9;
   cursor: pointer;
   transform: scale(1.05);
-  transition: all 0.2s ease;
 }
 
 .empty {
@@ -285,22 +392,32 @@ button{
   cursor: default;
 }
 
-.timer{
+.timer {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.time{
+.time {
   padding: 5px 0;
 }
 
-/* MEDIA QUERIES FOR RESPONSIVENESS */
+/* ✨ Scroll animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
 
-/* Mobile Styles */
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 100px;
+    font-size: 60px;
     margin-left: 0;
   }
 
@@ -309,44 +426,26 @@ button{
     margin: 20px 0;
   }
 
-  .page.bg {
-    height: 85vh;
-    padding-top: 100px;
-  }
-
-  #about h1 {
-    font-size: 20px;
-  }
-
-  
-  #about .invite-text {
-    font-size: 18px;
-  }
-
   .countdown {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    font-size: 18px;
-  
+    font-size: 16px;
+    gap: 10px;
   }
 
-  .timer{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 20px 0;
+  .countdown div {
+    min-width: 70px;
+    height: 60px;
+    padding: 8px 5px;
+  }
+
+  .countdown div span {
+    font-size: 14px;
   }
 
   .location {
     font-size: 1.2rem;
   }
 
-  input {
-    width: 100%;
-  }
-
-  button {
+  input, button {
     width: 100%;
   }
 
@@ -355,7 +454,7 @@ button{
   }
 }
 
-/* Desktop Styles - Show message for mobile version */
+/* Desktop - Hide mobile-only blocks */
 @media (min-width: 769px) {
   .mobile-message {
     display: block;
@@ -365,55 +464,9 @@ button{
     text-align: center;
   }
 
-  /* Hide content for mobile */
   .hero h1, .calendar-title, .countdown, .location, .final-text {
     display: none;
   }
 }
 
-/* === АНИМАЦИЯ ПОЯВЛЕНИЯ СНИЗУ === */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-.fade-in-up {
-  opacity: 0;
-  animation: fadeInUp 1s ease-out forwards;
-}
-
-/* Применение анимации к секциям */
-.about,
-.location,
-#about,
-#calendar,
-.countdown {
-  opacity: 0;
-  animation: fadeInUp 1s ease-out forwards;
-}
-
-/* Задержка появления по очереди (опционально) */
-.about { animation-delay: 0.2s; }
-.location { animation-delay: 0.4s; }
-#about { animation-delay: 0.6s; }
-#calendar { animation-delay: 0.8s; }
-.countdown { animation-delay: 1s; }
-
-
-/* Анимация появления снизу при скролле */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}

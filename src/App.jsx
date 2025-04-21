@@ -1,8 +1,9 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import orn2 from './images/orn2.png'
+import music from './sensulu.mp3'
+import orn2 from './images/orn2.png';
 
 function App() {
   const groom = 'Еркем';
@@ -35,24 +36,61 @@ function App() {
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
+  // Music
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlay = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const title = "My Awesome "; // название песни
+
   return (
     <div className="app">
-      <div className="page bg">
-        <h1 className='title'>Қыз ұзату</h1>
-        <section className="hero" data-aos="zoom-in">
+      <div className="page bg" data-aos="fade">
+        <div className="container">
+          <div
+            className={`circle-button ${isPlaying ? "spin" : ""}`}
+            onClick={togglePlay}
+          >
+            <div className="circular-text">
+              {[...title].map((char, i) => (
+                <span
+                  key={i}
+                  style={{
+                    transform: `rotate(${i * (360 / title.length)}deg)`, // Это распределит каждый символ по кругу
+                  }}
+                >
+                  {char}
+                </span>
+              ))}
+            </div>
+            <div className="play-icon">{isPlaying ? "⏸" : "▶️"}</div>
+          </div>
+          <audio ref={audioRef} src={music} />
+        </div>
+        <h1 className="title" data-aos="zoom-in">Қыз ұзату</h1>
+        <section className="hero" data-aos="zoom-in-up">
           <h1>{groom}</h1>
         </section>
-
-        <span className='line'></span>
-        <span className='page-down'></span>
+        <span className="line"></span>
+        <span className="page-down"></span>
       </div>
 
-      <div className="page">
-             <span className='orn orn1'></span>
-                    <span className='orn-heart'>
-                      <img src={orn2} alt="" />
-                    </span>
-        <section className="about" id='about' data-aos="fade-up">
+      <div className="page" data-aos="fade-up">
+        <span className="orn orn1 lazy-fade"></span>
+        <span className="orn-heart">
+          <img src={orn2} alt="" />
+        </span>
+        <section className="about" id="about" data-aos="fade-up">
           <h1>
             Құрметті ағайын-туыс, бауырлар,<br />
             нағашы-жиен, құда-жекжат,<br />
@@ -61,9 +99,9 @@ function App() {
 
           <p className="invite-text">Сіздерді аяулы</p>
 
-          <div className="name">Еркем</div>
+          <div className="name" data-aos="zoom-in">{groom}</div>
 
-          <p className="invite-text">
+          <p className="invite-text" data-aos="fade-up">
             қызымыздың ұзату тойына<br />
             арналған салтанатты<br />
             ақ дастарханымыздың<br />
@@ -71,82 +109,45 @@ function App() {
             болуға шақырамыз!
           </p>
         </section>
-        <span className='bg-opacity'></span>
-        <span className='ornament'></span>
+        <span className="bg-opacity lazy-fade"></span>
+        <span className="ornament lazy-zoom"></span>
       </div>
 
-      <div className="page">
-         <span className='orn-heart'>
-                      <img src={orn2} alt="" />
-                    </span>
-        <span className='orn orn2'></span>
+      <div className="page" data-aos="fade">
+        <span className="orn-heart">
+          <img src={orn2} alt="" />
+        </span>
+        <span className="orn orn2 lazy-fade"></span>
         <h1 data-aos="fade-up">Той иелері</h1>
         <h1 className="name" data-aos="zoom-in">Айдын - Самал</h1>
-        
-         <span className='orn-heart'>
-                      <img src={orn2} alt="" />
-                    </span>
+
+        <span className="orn-heart">
+          <img src={orn2} alt="" />
+        </span>
 
         <h1 data-aos="fade-up">Той салтанаты</h1>
         <section id="calendar" data-aos="fade-up">
-          <h2 className='calendar-title'>28 Маусым 2025</h2>
+          <span className="orn orn3 lazy-fade"></span>
+          <h2 className="calendar-title">28 Маусым 2025</h2>
           <div className="calendar-grid">
-            <div className="day-name">Дс</div>
-            <div className="day-name">Сс</div>
-            <div className="day-name">Ср</div>
-            <div className="day-name">Бс</div>
-            <div className="day-name">Жм</div>
-            <div className="day-name">Сн</div>
-            <div className="day-name">Жс</div>
-
-            <div className="day empty"></div>
-            <div className="day empty"></div>
-            <div className="day empty"></div>
-            <div className="day">1</div>
-            <div className="day">2</div>
-            <div className="day">3</div>
-            <div className="day">4</div>
-
-            <div className="day">5</div>
-            <div className="day">6</div>
-            <div className="day">7</div>
-            <div className="day">8</div>
-            <div className="day">9</div>
-            <div className="day">10</div>
-            <div className="day">11</div>
-
-            <div className="day">12</div>
-            <div className="day">13</div>
-            <div className="day">14</div>
-            <div className="day">15</div>
-            <div className="day">16</div>
-            <div className="day">17</div>
-            <div className="day">18</div>
-
-            <div className="day">19</div>
-            <div className="day">20</div>
-            <div className="day">21</div>
-            <div className="day">22</div>
-            <div className="day">23</div>
-            <div className="day">24</div>
-            <div className="day">25</div>
-
-            <div className="day">26</div>
-            <div className="day">27</div>
-            <div className="day">28</div>
-            <div className="day">29</div>
-            <div className="day">30</div>
-            <div className="day">31</div>
+            {['Дс','Сс','Ср','Бс','Жм','Сн','Жс'].map((day, i) => (
+              <div key={i} className="day-name">{day}</div>
+            ))}
+            {Array(3).fill().map((_, i) => <div key={`empty-${i}`} className="day empty"></div>)}
+            {Array.from({ length: 31 }, (_, i) => (
+              <div key={i} className={`day ${i + 1 === 28 ? 'day28' : ''}`}>{i + 1}</div>
+            ))}
           </div>
-          
-          <h1 className='time'>Басталу уақыты</h1>
-          <h1 className='time'>18:00</h1>
 
- <span className='orn-heart'>
-                      <img src={orn2} alt="" />
-                    </span>
+          <h1 className="time">Басталу уақыты</h1>
+          <h1 className="time">18:00</h1>
+
+          <span className="orn-heart">
+            <img src={orn2} alt="" />
+          </span>
+
           <section className="timer" data-aos="fade-up">
-            <h2 className='time'>Тойға дейін қалды:</h2>
+            <h2 className="time">Тойға дейін қалды:</h2>
             <div className="countdown">
               <div><span>{timeLeft.days}</span><small> күн</small></div>
               <div><span>{timeLeft.hours}</span><small> сағ</small></div>
@@ -156,38 +157,34 @@ function App() {
           </section>
         </section>
       </div>
-       <span className='orn-heart'>
-                      <img src={orn2} alt="" />
-                    </span>
 
-      <div className="page">
-        <section className="location" data-aos="fade-up">
+      <div className="page" data-aos="fade-up">
+        <section className="location">
           <h2>Мекенжай</h2>
           <p>Жаркент, Валиханова көшесі, 2/9 <br /> Ресторан "Мереке"</p>
-          <a className='gis' href='https://go.2gis.com/FAaWj'>2GIS</a>
+          <span className="orn orn4 lazy-fade"></span>
+          <a className="gis" href="https://go.2gis.com/FAaWj">2GIS</a>
         </section>
       </div>
 
-      <div className="page">
-         <span className='orn-heart'>
-                      <img src={orn2} alt="" />
-                    </span>
-        <h1 className='final-text' data-aos="zoom-in">Тойға келуіңізді сұраймыз!</h1>
-
+      <div className="page final" data-aos="zoom-in">
+        <span className="orn-heart">
+          <img src={orn2} alt="" />
+        </span>
+        <h1 className="final-text">Тойға келуіңізді сұраймыз!</h1>
         <input
           type="text"
-          placeholder='Аты-жөніңіз'
+          placeholder="Аты-жөніңіз"
           value={value}
           onChange={(e) => setValue(e.currentTarget.value)}
           data-aos="fade-up"
         />
-
         <section className="rsvp" data-aos="fade-up">
           <button onClick={handleWhatsapp}>Қатысамын</button>
         </section>
-         <span className='orn-heart'>
-                      <img src={orn2} alt="" />
-                    </span>
+        <span className="orn-heart">
+          <img src={orn2} alt="" />
+        </span>
       </div>
     </div>
   );
