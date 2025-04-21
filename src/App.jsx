@@ -9,7 +9,7 @@ function App() {
   
   const groom = 'Еркем';
   const eventDate = new Date('2025-06-28T18:00:00');
-  const phone = '77003040299';
+  const phone = '77770120602';
   const [value, setValue] = useState("");
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, mins: 0, secs: 0 });
 
