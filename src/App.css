@@ -2,36 +2,29 @@
 
 @font-face {
   font-family: 'MyCustomFont';
-  src: url('../public/font/KZPFChampionScriptPro-Regular.woff') format('woff');
+  src: url('/font/KZPFChampionScriptPro-Regular.woff') format('woff'); /* Убедись, что путь корректный */
   font-weight: normal;
   font-style: normal;
 }
-
-
 
 :root {
   --font-title: 'MyCustomFont', cursive;
   --font-text: 'Cormorant Infant', serif;
 }
-* {
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none;     /* IE10+/Edge */
-  user-select: none;         /* Стандарт */
-}
 
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-html {
-  overflow-x: hidden;
-}
-
-body {
+html, body {
   overflow-x: hidden;
   background: #fffaf8;
   font-family: var(--font-text);
@@ -40,117 +33,45 @@ body {
   color: #333;
 }
 
-/*  */
-.container {
-  position: absolute; /* Обязательно абсолютное позиционирование */
-  top: 500px;  /* Устанавливаем позицию контейнера */
-  left: 20px;  /* Устанавливаем позицию контейнера */
-  width: 120px;
-  height: 120px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.circle-button {
-
-  width: 120px;
-  height: 120px;
-  
-  /* border: 15px solid #4caf50; */
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 20px solid rgb(255, 255, 255);
-}
-
-.spin {
-  animation: spin 5s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-/* Текст по кругу */
-.circular-text {
-    font-size: 50px;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: -60px;
-  left: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-  transform-origin: center;
-  
-}
-
-.spin .circular-text {
-    font-size: 50px;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: -60px;
-  left: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-  transform-origin: center;
-}
-
-.circular-text span {
-    font-size: 50px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform-origin: 0 60px; /* Центрируем вокруг круга */
-  font-size: 14px;
-  color: #ff7f7f;
-  font-weight: 600;
-    text-shadow: 0 0 5px rgb(0, 0, 0);
-  letter-spacing: 2px;
-  white-space: nowrap;
-  transform: rotate(0deg) translateX(70px); /* Радиус текста изменен на 70px */
-}
-
-.play-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 36px;
-  color: white;
-  text-shadow: 0 0 1px black;
-  z-index: 5;
-  
-}
-
-
-
-
-/*  */
-
-
+/* Main Page */
 .page {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: auto;
-  padding: 20px 20px;
+  padding: 20px;
   position: relative;
 }
 
+/* Background Image Section */
+.page.bg {
+  background: url('./images/Berıkqali-Alia.jpeg') center/cover no-repeat;
+  height: 85vh;
+  padding-top: 100px;
+  border: none;
+}
+
+/* Title */
+.page .title {
+  font-family: 'Old Standard TT', serif;
+  margin-left: -20px;
+  color: #fda9a9;
+}
+
+.hero h1 {
+  font-family: var(--font-title);
+  font-size: clamp(100px, 12vw, 100px);
+  margin-top: 0;
+  margin-left: -50px;
+  font-weight: normal;
+  color: #fda9a9;
+  animation: fadeInUp 1.2s ease forwards;
+  opacity: 0;
+}
+
+/* Ornaments */
 .orn {
-  display: block;
   position: absolute;
   width: 250px;
   height: 250px;
@@ -177,133 +98,77 @@ body {
   object-fit: contain;
 }
 
-.day28 {
-  background: url('./images/heart-Photoroom.png') center center / 125% 80% no-repeat;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.page.bg {
-  background: url('./images/Berıkqali-Alia.jpeg') center/cover no-repeat;
-  height: 85vh;
-  padding-top: 100px;
-  border: none;
-}
-
-.page .title {
-  font-family: "Old Standard TT", serif;
-  margin: 0 0 0 -20px;
-  color: #fda9a9;
-  
-}
-
-.hero h1 {
-  font-family: var(--font-title);
-  font-size: clamp(100px, 12vw, 100px);
-  margin-top: 0;
-  margin-left: -50px;
-  font-weight: normal;
-  color: #fda9a9;
-  animation: fadeInUp 1.2s ease forwards;
-  opacity: 0;
-}
-
-.line {
+/* Circular Button */
+.container {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 150px;
-  background-image: linear-gradient(rgba(0, 0, 255, 0), #fff);
+  top: 500px;
+  left: 20px;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.page-down {
-  width: 100%;
+.circle-button {
+  width: 120px;
+  height: 120px;
+  border: 20px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spin {
+  animation: spin 5s linear infinite;
+}
+
+/* Circular Text */
+.circular-text {
   position: absolute;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
+  top: -60px;
   left: 0;
-  height: 43px;
-  background: url("./images/4.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  transform-origin: center;
 }
 
+.circular-text span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: 0 60px;
+  transform: rotate(0deg) translateX(70px);
+  font-size: 14px;
+  color: #ff7f7f;
+  font-weight: 600;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  text-shadow: 0 0 5px black;
+}
+
+/* Play Icon */
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  color: white;
+  text-shadow: 0 0 1px black;
+  z-index: 5;
+}
+
+/* Sections */
 .about, .timer, .location, .rsvp {
   padding: 40px 20px;
-}
-
-.location {
-  font-size: 1.5rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: fadeIn 1s ease forwards;
-  opacity: 0;
-}
-
-.location p {
-  text-align: center;
-}
-
-.countdown {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-    gap: 15px;
-  font-size: 24px;
-  text-align: center;
-  animation: fadeInUp 1.5s ease forwards;
-  opacity: 0;
-}
-
-.countdown div {
-  background: #fbe9e7;
-  padding: 10px 15px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 90px;
-  height: 75px;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.countdown div span {
-  font-size: 16px;
-}
-
-.gis {
-  margin-top: 20px;
-  text-decoration: none;
-  color: #333;
-  background: #fbe9e7;
-  padding: 10px 20px;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-}
-
-.gis:hover {
-  background-color: #fbd4cf;
-  transform: scale(1.05);
 }
 
 #about {
@@ -353,31 +218,66 @@ body {
   margin: 20px 0 50px;
 }
 
-.final-text {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  animation: fadeInUp 1.3s ease forwards;
+/* Countdown */
+.countdown {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 24px;
+  text-align: center;
+  animation: fadeInUp 1.5s ease forwards;
   opacity: 0;
 }
 
-input, button {
-  border: none;
-  padding: 15px 10px;
-  border-radius: 15px;
-  box-shadow: 0 0 0.5px 0px;
-  font-size: 1rem;
-}
-
-button {
+.countdown div {
   background: #fbe9e7;
-  cursor: pointer;
-  transition: background 0.3s ease;
+  padding: 10px 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  height: 75px;
+  animation: fadeIn 1s ease-in-out;
 }
 
-button:hover {
-  background: #ffd5cb;
+.countdown div span {
+  font-size: 16px;
 }
 
+/* Location */
+.location {
+  font-size: 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+.location p {
+  text-align: center;
+}
+
+.gis {
+  margin-top: 20px;
+  text-decoration: none;
+  color: #333;
+  background: #fbe9e7;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.gis:hover {
+  background-color: #fbd4cf;
+  transform: scale(1.05);
+}
+
+/* Calendar */
 #calendar {
   display: flex;
   flex-direction: column;
@@ -410,92 +310,79 @@ button:hover {
 }
 
 .day:hover {
-  background-color: #f0e0f9;
-  cursor: pointer;
-  transform: scale(1.05);
+  background-color: #fbd4cf;
 }
 
-.empty {
-  background: transparent;
-  border: none;
-  cursor: default;
-}
-
-.timer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.time {
-  padding: 5px 0;
-}
-
-/* ✨ Scroll animation */
-.reveal {
+/* Final Section */
+.final-text {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  animation: fadeInUp 1.3s ease forwards;
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* Inputs and Buttons */
+input, button {
+  border: none;
+  padding: 15px 10px;
+  border-radius: 15px;
+  box-shadow: 0 0 0.5px 0px;
+  font-size: 1rem;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 100px;
-    margin-left: 0;
-  }
-
-  .title {
-    font-size: 30px;
-    margin: 20px 0;
-  }
-
-  .countdown {
-    font-size: 16px;
-    gap: 10px;
-  }
-
-  .countdown div {
-    min-width: 70px;
-    height: 60px;
-    padding: 8px 5px;
-  }
-
-  .countdown div span {
-    font-size: 14px;
-  }
-
-  .location {
-    font-size: 1.2rem;
-  }
-
-  input, button {
-    width: 100%;
-  }
-
-  .calendar-grid {
-    grid-template-columns: repeat(7, 1fr);
-  }
+button {
+  background: #fbe9e7;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-/* Desktop - Hide mobile-only blocks */
-@media (min-width: 769px) {
-  .mobile-message {
-    display: block;
-    font-size: 1.5rem;
-    color: #d46754;
-    margin-top: 20px;
-    text-align: center;
-  }
+button:hover {
+  background: #ffd5cb;
+}
 
-  .hero h1, .calendar-title, .countdown, .location, .final-text {
-    display: none;
-  }
+/* Decorative Bottom Line */
+.line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background-image: linear-gradient(rgba(0, 0, 255, 0), #fff);
+}
+
+.page-down {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 43px;
+  background: url("./images/4.png");
+}
+
+.day28 {
+  background: url('./images/heart-Photoroom.png') center center / 125% 80% no-repeat;
 }
 
 
+
+/* Animations */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
