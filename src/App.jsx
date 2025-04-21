@@ -2,7 +2,7 @@ import './App.css';
 import { useEffect, useState, useRef } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import music from './sensulu.mp3'
+import music from './sensulu.mp3';
 import orn2 from './images/orn2.png';
 
 function App() {
@@ -10,7 +10,6 @@ function App() {
   const eventDate = new Date('2025-06-28T18:00:00');
   const phone = '77003040299';
   const [value, setValue] = useState("");
-
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, mins: 0, secs: 0 });
 
   useEffect(() => {
@@ -51,7 +50,7 @@ function App() {
     }
   };
 
-  const title = "My Awesome "; // название песни
+  const title = "Орда - Сен сұлу..... "; // название песни
 
   return (
     <div className="app">
@@ -73,7 +72,7 @@ function App() {
                 </span>
               ))}
             </div>
-            <div className="play-icon">{isPlaying ? "⏸" : "▶️"}</div>
+            <div className="play-icon">{isPlaying ? "⏸" : "▶"}</div>
           </div>
           <audio ref={audioRef} src={music} />
         </div>
